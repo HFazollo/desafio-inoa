@@ -19,6 +19,8 @@ namespace AcompanhaAcoes.Services
             _httpClient.Timeout = TimeSpan.FromSeconds(10);
         }
 
+
+        // ---- CONSUMO DA API ----
         public async Task<decimal> GetPrecoAcaoAsync(string acao)
         {
             try
@@ -42,6 +44,8 @@ namespace AcompanhaAcoes.Services
             }
         }
 
+
+        // ---- CORRIGE FORMATO DA AÇÃO PARA SE ENCAIXAR NO PADRÃO DA API ----
         private string SanitizeSymbol(string acao)
         {
             return Regex.Replace(acao, @"[^a-zA-Z0-9]", "");
